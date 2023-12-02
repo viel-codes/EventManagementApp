@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "571397466124",
+    "firebase_url": "https://event-management-app-fd9d8-default-rtdb.firebaseio.com",
+    "project_id": "event-management-app-fd9d8",
+    "storage_bucket": "event-management-app-fd9d8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:571397466124:android:f30d8a421660b112c92629",
+        "android_client_info": {
+          "package_name": "com.labactivity.eventmanagement"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpBvk_MUgnmtfFUJ5Elsr5p0uPL7LKJr8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
