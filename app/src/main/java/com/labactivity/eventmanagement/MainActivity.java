@@ -1,28 +1,17 @@
 package com.labactivity.eventmanagement;
 
 
-import androidx.annotation.Nullable;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.ImageButton;
-import android.widget.SearchView;
-
-import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.database.FirebaseDatabase;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    FloatingActionButton addEventBtn;
-    RecyclerView recyclerView;
-    MainAdapter v_mainAdapter;
+    Button btn_ViewEvents, btn_AddEvents, btn_Package;
 
 
     @Override
@@ -30,71 +19,37 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        recyclerView = findViewById(R.id.rv_id);
-        addEventBtn = findViewById(R.id.add_event_button);
+        btn_AddEvents = findViewById(R.id.btn_events_add_id);
+        btn_ViewEvents = findViewById(R.id.btn_events_view_id);
+        btn_Package = findViewById(R.id.btn_events_package_id);
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        addEventBtn.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, AddRecord.class)));
-
-        FirebaseRecyclerOptions<MainModel> options =
-                new FirebaseRecyclerOptions.Builder<MainModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("event"), MainModel.class)
-                        .build();
-
-        v_mainAdapter = new MainAdapter(options);
-        recyclerView.setAdapter(v_mainAdapter);
-
-    }
-
-    @Override
-    protected void onPostCreate(@Nullable Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        v_mainAdapter.startListening();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        v_mainAdapter.stopListening();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.search,menu);
-        MenuItem item = menu.findItem(R.id.search);
-        SearchView searchView = (SearchView)item.getActionView();
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        btn_AddEvents.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onQueryTextSubmit(String query) {
-                txtSearch(query);
-                return false;
-            }
+            public void onClick(View v) {
 
-            @Override
-            public boolean onQueryTextChange(String query) {
-                txtSearch(query);
-                return false;
+                Intent intent_AddEvents = new Intent(MainActivity.this,AddRecord.class);
+                startActivity(intent_AddEvents);
+
             }
         });
 
-        return super.onCreateOptionsMenu(menu);
-    }
-    private void txtSearch(String str){
-        FirebaseRecyclerOptions<MainModel> options =
-                new FirebaseRecyclerOptions.Builder<MainModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("event").orderByChild("b_name").startAt(str).endAt(str+"~"), MainModel.class)
-                        .build();
+        btn_ViewEvents.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent_ViewEvents = new Intent(MainActivity.this,ViewEvents.class);
+                startActivity(intent_ViewEvents);
+            }
+        });
 
-        v_mainAdapter = new MainAdapter(options);
-        v_mainAdapter.startListening();
-        recyclerView.setAdapter(v_mainAdapter);
+        btn_Package.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent_Package = new Intent(MainActivity.this,EventPackage.class);
+                startActivity(intent_Package);
+            }
+        });
+
+
 
     }
 }
