@@ -11,4 +11,13 @@
     <color name="my_color">#B52196F3</color>
     <color name="background">#B02136F3</color>
     <color name="button">#B0575757</color>
+
+    <color name="green2">#040D12</color>
+    <color name="green1">#183D3D</color>
+    <color name="sage">#5C8374</color>
+    <color name="sage1">#93B1A6</color>
+
+    <color name="gray1">#526D82</color>
+    <color name="gray2">#E4ECF3</color>
+    <color name="gray3">#27374D</color>
 </resources>

@@ -131,7 +131,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingStart="10dp"
-            android:text="LOCATION"
+            android:text="VENUE"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />

@@ -15,17 +15,17 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Package 1" />
+            android:text="Bronze" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Package 2" />
+            android:text="Platinum" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Package 3" />
+            android:text="Gold" />
 
     </com.google.android.material.tabs.TabLayout>
 
